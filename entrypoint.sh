@@ -1,2 +1,3 @@
-IFS=':' read -ra OPA_TEST_PATHS <<< "$1"
-cd "$GITHUB_WORKSPACE" && opa test "${OPA_TEST_PATHS[@]}"
+#!/bin/sh -l
+IFS=':' read -ra OPA_TEST_PATH <<< "$1"
+cd "$GITHUB_WORKSPACE" && opa test "${OPA_TEST_PATH[@]}"
