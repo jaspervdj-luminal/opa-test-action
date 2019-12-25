@@ -1,8 +1,11 @@
 name: 'OPA test'
 description: 'Runs opa test'
 inputs:
-  path:
-    description: 'Paths to pass to `opa test`.  You can use ":" as a separator.'
+  args:
+    description: |
+      Argument string to pass to `opa test`.  This is currently passed to the
+      shell unescaped, allowing you to pass in multiple paths or other
+      arguments.
     required: true
     default: '.'
 outputs: {}
@@ -10,4 +13,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - ${{ inputs.path }}
+  - ${{ inputs.args }}
