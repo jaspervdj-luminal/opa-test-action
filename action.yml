@@ -1,0 +1,13 @@
+name: 'OPA test'
+description: 'Runs opa test'
+inputs:
+  path:
+    description: 'Paths to pass to `opa test`.  You can use ":" as a separator.'
+    required: true
+    default: '.'
+outputs: {}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.path }}
